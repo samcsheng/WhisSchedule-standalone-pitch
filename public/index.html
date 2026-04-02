@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WhisSchedule | Manager Pitch</title>
+  <meta name="description" content="A manager-facing pitch page for WhisSchedule using a static snapshot of real instructor data." />
+  <style>
+    :root {
+      --bg: oklch(0.98 0.01 235);
+      --bg-strong: oklch(0.94 0.025 230);
+      --panel: rgba(255, 255, 255, 0.84);
+      --panel-strong: rgba(250, 252, 255, 0.96);
+      --line: rgba(34, 63, 94, 0.12);
+      --text: oklch(0.27 0.03 246);
+      --muted: oklch(0.5 0.025 240);
+      --blue: oklch(0.63 0.16 244);
+      --sky: oklch(0.72 0.11 234);
+      --teal: oklch(0.71 0.11 198);
+      --gold: oklch(0.8 0.12 86);
+      --rose: oklch(0.7 0.12 18);
+      --violet: oklch(0.62 0.13 302);
+      --mint: oklch(0.79 0.1 164);
+      --green: oklch(0.72 0.14 151);
+      --amber: oklch(0.77 0.14 67);
+      --slate: oklch(0.66 0.03 245);
+      --shadow: 0 28px 70px rgba(55, 89, 132, 0.14);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --content: min(1180px, calc(100vw - 32px));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", "Avenir Next", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(127, 198, 255, 0.28), transparent 32%),
+        radial-gradient(circle at top right, rgba(255, 214, 147, 0.2), transparent 28%),
+        linear-gradient(180deg, #eef5fb 0%, #f7fafc 52%, #ecf4f8 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.46) 0%, transparent 28%),
+        repeating-linear-gradient(120deg, rgba(71, 111, 160, 0.025) 0 1px, transparent 1px 18px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: var(--content);
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+      padding-top: 14px;
+    }
+
+    .hero-copy,
+    .hero-side,
+    .feature,
+    .impact,
+    .footer-card {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 4vw, 44px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -70px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(122, 189, 255, 0.22), transparent 68%);
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.6rem, 5vw, 5.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+      font-weight: 800;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 56ch;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.65;
+      color: color-mix(in oklab, var(--text) 72%, white);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(73, 112, 161, 0.1);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-side {
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .manager-note {
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.88), rgba(235,244,251,0.92));
+      border: 1px solid rgba(77, 115, 162, 0.12);
+      padding: 22px;
+    }
+
+    .manager-note h2,
+    .feature h2,
+    .impact h2,
+    .footer-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .manager-note p {
+      margin: 0;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .program-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(80, 120, 170, 0.1);
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--slate);
+      box-shadow: 0 0 0 5px color-mix(in oklab, var(--slate) 18%, white);
+      flex: 0 0 auto;
+    }
+
+    .accent-blue { background: var(--blue); box-shadow: 0 0 0 5px color-mix(in oklab, var(--blue) 18%, white); }
+    .accent-sky { background: var(--sky); box-shadow: 0 0 0 5px color-mix(in oklab, var(--sky) 18%, white); }
+    .accent-teal { background: var(--teal); box-shadow: 0 0 0 5px color-mix(in oklab, var(--teal) 18%, white); }
+    .accent-gold { background: var(--gold); box-shadow: 0 0 0 5px color-mix(in oklab, var(--gold) 18%, white); }
+    .accent-rose { background: var(--rose); box-shadow: 0 0 0 5px color-mix(in oklab, var(--rose) 18%, white); }
+    .accent-violet { background: var(--violet); box-shadow: 0 0 0 5px color-mix(in oklab, var(--violet) 18%, white); }
+    .accent-mint { background: var(--mint); box-shadow: 0 0 0 5px color-mix(in oklab, var(--mint) 18%, white); }
+    .accent-green { background: var(--green); box-shadow: 0 0 0 5px color-mix(in oklab, var(--green) 18%, white); }
+    .accent-amber { background: var(--amber); box-shadow: 0 0 0 5px color-mix(in oklab, var(--amber) 18%, white); }
+    .accent-slate { background: var(--slate); box-shadow: 0 0 0 5px color-mix(in oklab, var(--slate) 18%, white); }
+
+    .feature-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .feature {
+      border-radius: var(--radius-xl);
+      padding: clamp(20px, 3vw, 32px);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .feature-copy h3 {
+      margin: 0 0 14px;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -0.05em;
+      line-height: 0.96;
+    }
+
+    .feature-copy p {
+      margin: 0;
+      line-height: 1.7;
+      color: color-mix(in oklab, var(--text) 72%, white);
+    }
+
+    .feature-points {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .feature-points div {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(76, 114, 160, 0.08);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .device {
+      border-radius: 30px;
+      padding: 12px;
+      background: linear-gradient(180deg, rgba(29, 55, 83, 0.94), rgba(18, 36, 60, 0.98));
+      box-shadow: 0 30px 60px rgba(22, 41, 62, 0.22);
+      max-width: 420px;
+      margin-left: auto;
+      width: 100%;
+    }
+
+    .device-screen {
+      border-radius: 22px;
+      background: linear-gradient(180deg, #f9fcff 0%, #eef4f8 100%);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .app-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px 18px 14px;
+      background: linear-gradient(180deg, rgba(191, 222, 250, 0.72), rgba(255,255,255,0));
+    }
+
+    .app-head strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 3px;
+    }
+
+    .app-head span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .app-badge {
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+    }
+
+    .schedule-list,
+    .client-list,
+    .pay-list {
+      display: grid;
+      gap: 10px;
+      padding: 0 14px 16px;
+    }
+
+    .schedule-day,
+    .client-row,
+    .pay-row {
+      border-radius: 18px;
+      background: var(--panel-strong);
+      border: 1px solid rgba(80, 120, 170, 0.08);
+      padding: 14px;
+    }
+
+    .schedule-dayhead,
+    .pay-rowhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .schedule-dayhead strong,
+    .pay-rowhead strong,
+    .client-row strong {
+      font-size: 0.96rem;
+      letter-spacing: -0.03em;
+    }
+
+    .schedule-dayhead span,
+    .pay-rowhead span,
+    .client-row span,
+    .mini-label,
+    .mini-sub {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .lesson {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 1px solid rgba(77, 114, 158, 0.08);
+    }
+
+    .lesson:first-of-type { border-top: 0; padding-top: 0; }
+    .lesson:last-of-type { padding-bottom: 0; }
+
+    .lesson-copy strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .lesson-copy span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .lesson-hours {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(230, 240, 247, 0.9);
+    }
+
+    .stats-surface {
+      display: grid;
+      gap: 14px;
+      padding: 0 14px 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(80, 120, 170, 0.08);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .bar-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bar-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bar-rowhead {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(219, 230, 239, 0.84);
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(91, 143, 214, 0.95), rgba(79, 197, 195, 0.95));
+    }
+
+    .pay-toolbar {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0 14px 14px;
+    }
+
+    .rate-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(80, 120, 170, 0.08);
+    }
+
+    .rate-card label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .rate-card input {
+      width: 100%;
+      border: 0;
+      background: rgba(237, 243, 248, 0.9);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      color: var(--text);
+    }
+
+    .mini-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(230, 239, 247, 0.9);
+      color: var(--muted);
+    }
+
+    .mini-tag.current {
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+    }
+
+    .impact {
+      margin-top: 22px;
+      border-radius: var(--radius-xl);
+      padding: clamp(22px, 3vw, 30px);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .impact-card {
+      border-radius: 22px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(76, 114, 160, 0.08);
+      padding: 18px;
+    }
+
+    .impact-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.03em;
+    }
+
+    .impact-card p,
+    .footer-card p {
+      margin: 0;
+      line-height: 1.65;
+      color: color-mix(in oklab, var(--text) 72%, white);
+    }
+
+    .footer-card {
+      margin-top: 22px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .footer-card .meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .loading {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .feature {
+        grid-template-columns: 1fr;
+      }
+
+      .device {
+        max-width: none;
+        margin-left: 0;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell { padding-top: 18px; }
+      .hero-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pay-toolbar,
+      .stat-grid { grid-template-columns: 1fr; }
+      .footer-card { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy,
+      .hero-side,
+      .feature,
+      .impact,
+      .footer-card {
+        animation: rise 0.8s ease both;
+      }
+
+      .feature:nth-of-type(2) { animation-delay: 0.08s; }
+      .feature:nth-of-type(3) { animation-delay: 0.16s; }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="loading">Loading static snapshot…</div>
+
+  <script>
+    const ACCENT_CLASS = {
+      blue: "accent-blue",
+      sky: "accent-sky",
+      teal: "accent-teal",
+      gold: "accent-gold",
+      rose: "accent-rose",
+      violet: "accent-violet",
+      mint: "accent-mint",
+      green: "accent-green",
+      amber: "accent-amber",
+      slate: "accent-slate",
+      lilac: "accent-violet",
+      cyan: "accent-teal",
+    };
+
+    const currency = new Intl.NumberFormat("en-CA", {
+      style: "currency",
+      currency: "CAD",
+      maximumFractionDigits: 0,
+    });
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;",
+      }[char]));
+    }
+
+    function accentDot(accent) {
+      return `<span class="dot ${ACCENT_CLASS[accent] || "accent-slate"}"></span>`;
+    }
+
+    function renderPrograms(programs) {
+      return programs.map(program => `
+        <div class="pill">${accentDot(program.accent)}<strong>${escapeHtml(program.label)}</strong> ${program.hours}h</div>
+      `).join("");
+    }
+
+    function renderScheduleDays(days) {
+      return days.map(day => `
+        <article class="schedule-day">
+          <div class="schedule-dayhead">
+            <div>
+              <strong>${escapeHtml(day.weekday)}, ${escapeHtml(day.dateLabel)}</strong>
+              <span>${day.items.length} item${day.items.length === 1 ? "" : "s"}</span>
+            </div>
+            <span>${day.totalHours}h</span>
+          </div>
+          ${day.items.map(item => `
+            <div class="lesson">
+              ${accentDot(item.accent)}
+              <div class="lesson-copy">
+                <strong>${escapeHtml(item.title)}</strong>
+                <span>${escapeHtml(item.programLabel)} · ${item.state === "scheduled" ? "Upcoming" : "Worked"}${item.client ? ` · ${escapeHtml(item.client)}` : ""}</span>
+              </div>
+              <div class="lesson-hours">${item.hours}h</div>
+            </div>
+          `).join("")}
+        </article>
+      `).join("");
+    }
+
+    function renderStatsBars(programs) {
+      const max = Math.max(...programs.map(item => item.hours), 1);
+      return programs.map(program => `
+        <div class="bar-row">
+          <div class="bar-rowhead">
+            <span>${escapeHtml(program.label)}</span>
+            <span>${program.hours}h · ${program.share}%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:${(program.hours / max) * 100}%"></div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderClients(clients) {
+      return clients.map(client => `
+        <div class="client-row">
+          <strong>${escapeHtml(client.name)}</strong>
+          <span>${client.hours}h across ${client.days} day${client.days === 1 ? "" : "s"}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderPayRows(periods, teachingRate, privateRate) {
+      return periods.slice(-4).reverse().map(period => {
+        const gross = period.teachingHrs * teachingRate + period.privateHrs * privateRate;
+        const net = gross * 0.78;
+        return `
+          <article class="pay-row">
+            <div class="pay-rowhead">
+              <div>
+                <strong>${escapeHtml(period.rangeLabel)}</strong>
+                <span>${period.workDays} work days · ${period.privateHrs}h private</span>
+              </div>
+              <span class="mini-tag ${period.status === "current" ? "current" : ""}">${period.status}</span>
+            </div>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <span class="mini-label">Hours</span>
+                <strong>${period.totalHrs}</strong>
+                <span class="mini-sub">${period.avgPerDay} avg/day</span>
+              </div>
+              <div class="stat-card">
+                <span class="mini-label">Est. Net</span>
+                <strong>${currency.format(net)}</strong>
+                <span class="mini-sub">Illustrative rates only</span>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderPage(data) {
+      let teachingRate = Number(data.pay.sampleRates.teaching || 25);
+      let privateRate = Number(data.pay.sampleRates.private || 34);
+
+      const app = document.getElementById("app");
+      app.className = "";
+      app.innerHTML = `
+        <main class="shell">
+          <section class="hero">
+            <div class="hero-copy">
+              <div class="eyebrow">Static product pitch · built from real instructor data</div>
+              <h1>WhisSchedule turns portal data into a daily operating view.</h1>
+              <p class="lede">
+                This page uses a saved snapshot of ${escapeHtml(data.instructorName)}'s 2025-26 season to show how the app presents
+                the three core jobs cleanly on phone and desktop: what is scheduled next, what the season looks like overall, and what a pay period likely means.
+              </p>
+              <div class="hero-metrics">
+                <div class="metric"><strong>${data.summary.workDays}</strong><span>Work Days<br>${escapeHtml(data.season.label)}</span></div>
+                <div class="metric"><strong>${data.summary.lessonHours}</strong><span>Lesson Hours<br>from the static scrape</span></div>
+                <div class="metric"><strong>${data.summary.privateDays}</strong><span>Private Days<br>${data.summary.clientCount} tracked clients</span></div>
+                <div class="metric"><strong>${data.schedule.nextBlockHours}</strong><span>Next Block Hours<br>${data.schedule.nextBlockWorkDays} upcoming days</span></div>
+              </div>
+            </div>
+            <aside class="hero-side">
+              <div class="manager-note">
+                <h2>Why It Matters</h2>
+                <p>Instead of screenshots, the pitch uses static JSON derived from the real scraper. That keeps the file light, the data inspectable, and the product story grounded in how an instructor actually works through a season.</p>
+              </div>
+              <div class="manager-note">
+                <h2>Observed Mix</h2>
+                <div class="program-strip">${renderPrograms(data.summary.topPrograms.slice(0, 5))}</div>
+              </div>
+              <div class="manager-note">
+                <h2>Peak Load</h2>
+                <p>Busiest week: <strong>${data.summary.busiestWeek.hours}h</strong> during ${escapeHtml(data.summary.busiestWeek.label)}.<br>Busiest pay period: <strong>${data.summary.busiestPayPeriod.hours}h</strong> during ${escapeHtml(data.summary.busiestPayPeriod.label)}.</p>
+              </div>
+            </aside>
+          </section>
+
+          <section class="feature-grid">
+            <article class="feature">
+              <div class="feature-copy">
+                <h2>Schedule</h2>
+                <h3>Upcoming work is readable in seconds.</h3>
+                <p>The app condenses the next week into a compact list that works on the mountain. Scheduled items and completed work share the same visual language, so an instructor can move from planning to execution without context-switching.</p>
+                <div class="feature-points">
+                  <div>Uses the saved scrape snapshot, so the pitch stays lightweight and portable.</div>
+                  <div>Shows multiple assignments per day without forcing a full portal view.</div>
+                  <div>Preserves enough detail to understand program mix and time commitment immediately.</div>
+                </div>
+              </div>
+              <div class="device">
+                <div class="device-screen">
+                  <div class="app-head">
+                    <div>
+                      <strong>${escapeHtml(data.displayName)}'s schedule</strong>
+                      <span>${escapeHtml(data.season.label)} · next ${data.schedule.days.length} work days</span>
+                    </div>
+                    <div class="app-badge">Live pattern</div>
+                  </div>
+                  <div class="schedule-list">${renderScheduleDays(data.schedule.days)}</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="feature">
+              <div class="feature-copy">
+                <h2>Stats</h2>
+                <h3>Season patterns become visible instead of hidden in rows.</h3>
+                <p>The stats view converts the same lesson stream into operational signals: workload, program distribution, busiest stretches, and private-client activity. It gives both the instructor and their lead a faster way to understand how the season is unfolding.</p>
+                <div class="feature-points">
+                  <div>Highlights the dominant programs for the season instead of leaving them buried in schedule text.</div>
+                  <div>Surfaces a client summary for private work without exposing oversized screenshots.</div>
+                  <div>Supports both individual self-management and manager-level conversations about utilization.</div>
+                </div>
+              </div>
+              <div class="device">
+                <div class="device-screen">
+                  <div class="app-head">
+                    <div>
+                      <strong>Season stats</strong>
+                      <span>${data.summary.lessonHours} lesson hours · ${data.summary.workDays} work days</span>
+                    </div>
+                    <div class="app-badge">Derived view</div>
+                  </div>
+                  <div class="stats-surface">
+                    <div class="stat-grid">
+                      <div class="stat-card"><span class="mini-label">Work Days</span><strong>${data.summary.workDays}</strong><span class="mini-sub">${escapeHtml(data.season.label)}</span></div>
+                      <div class="stat-card"><span class="mini-label">Private Days</span><strong>${data.summary.privateDays}</strong><span class="mini-sub">${data.summary.clientCount} clients tracked</span></div>
+                      <div class="stat-card"><span class="mini-label">Busiest Week</span><strong>${data.summary.busiestWeek.hours}h</strong><span class="mini-sub">${escapeHtml(data.summary.busiestWeek.label)}</span></div>
+                      <div class="stat-card"><span class="mini-label">Top Program</span><strong>${escapeHtml(data.stats.topPrograms[0]?.label || "N/A")}</strong><span class="mini-sub">${data.stats.topPrograms[0]?.hours || 0}h total</span></div>
+                    </div>
+                    <div class="bar-stack">${renderStatsBars(data.stats.topPrograms)}</div>
+                    <div class="client-list">${renderClients(data.stats.clients)}</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="feature">
+              <div class="feature-copy">
+                <h2>Pay</h2>
+                <h3>Hours can be translated into pay-period context.</h3>
+                <p>The pay view is intentionally framed as an estimate, not payroll. It lets a user plug in teaching and private rates, then watch current and recent pay periods update from the same saved schedule data. That makes the feature useful without pretending to replace official payroll systems.</p>
+                <div class="feature-points">
+                  <div>Editable rates demonstrate the estimator without tying the page to confidential payroll data.</div>
+                  <div>Pay periods are grouped from actual lesson hours, including private-hour mix.</div>
+                  <div>Keeps the final payroll caveat explicit while still making the app financially useful.</div>
+                </div>
+              </div>
+              <div class="device">
+                <div class="device-screen">
+                  <div class="app-head">
+                    <div>
+                      <strong>Pay estimator</strong>
+                      <span>Illustrative rates over real scheduled hours</span>
+                    </div>
+                    <div class="app-badge">Editable</div>
+                  </div>
+                  <div class="pay-toolbar">
+                    <div class="rate-card">
+                      <label for="teachingRate">Teaching rate</label>
+                      <input id="teachingRate" type="number" step="0.5" value="${teachingRate}" />
+                    </div>
+                    <div class="rate-card">
+                      <label for="privateRate">Private rate</label>
+                      <input id="privateRate" type="number" step="0.5" value="${privateRate}" />
+                    </div>
+                  </div>
+                  <div id="payRows" class="pay-list">${renderPayRows(data.pay.periods, teachingRate, privateRate)}</div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="impact">
+            <h2>What This Pitch Demonstrates</h2>
+            <div class="impact-grid">
+              <div class="impact-card">
+                <strong>Real data, smaller files</strong>
+                <p>The pitch avoids screenshot-heavy assets by rendering directly from a saved JSON snapshot generated from `scrape.py`.</p>
+              </div>
+              <div class="impact-card">
+                <strong>One data source, three products</strong>
+                <p>The same scrape powers day planning, season-level insight, and pay-period estimation, which makes the app feel coherent instead of bolted together.</p>
+              </div>
+              <div class="impact-card">
+                <strong>Mobile first without losing desktop polish</strong>
+                <p>The layout shifts composition across breakpoints so the page reads cleanly in a browser tab, on a phone, or while presenting from a laptop.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="footer-card">
+            <div>
+              <h2>Snapshot Details</h2>
+              <p>Data source: static scrape saved on ${escapeHtml(data.generatedAt.replace("T", " "))}. Manager page path: <code>/manager-pitch.html</code>.</p>
+            </div>
+            <div class="meta">
+              Season span: ${escapeHtml(data.season.label)}<br>
+              Sample season net at illustrative rates: ${currency.format(data.pay.seasonNetAtSampleRates)}
+            </div>
+          </section>
+        </main>
+      `;
+
+      const teachingInput = document.getElementById("teachingRate");
+      const privateInput = document.getElementById("privateRate");
+      const payRows = document.getElementById("payRows");
+
+      function updatePay() {
+        teachingRate = Number(teachingInput.value || 0);
+        privateRate = Number(privateInput.value || 0);
+        payRows.innerHTML = renderPayRows(data.pay.periods, teachingRate, privateRate);
+      }
+
+      teachingInput.addEventListener("input", updatePay);
+      privateInput.addEventListener("input", updatePay);
+    }
+
+    fetch("./data/manager-pitch.json", { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load the static snapshot.");
+        return response.json();
+      })
+      .then(renderPage)
+      .catch(error => {
+        document.getElementById("app").innerHTML = `<div><strong>Pitch page unavailable.</strong><br>${escapeHtml(error.message)}</div>`;
+      });
+  </script>
+</body>
+</html>

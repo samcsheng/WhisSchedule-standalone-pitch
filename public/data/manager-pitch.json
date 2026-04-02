@@ -1,0 +1,460 @@
+{
+  "generatedAt": "2026-04-01T17:57:58",
+  "today": "2026-04-01",
+  "instructorName": "Chengmin ( Sam ) Sheng",
+  "displayName": "Sam",
+  "season": {
+    "startKey": "2025-11-02",
+    "endKey": "2026-04-13",
+    "label": "Nov 2 - Apr 13"
+  },
+  "summary": {
+    "workDays": 79,
+    "lessonHours": 566.9,
+    "privateDays": 9,
+    "clientCount": 7,
+    "busiestWeek": {
+      "label": "Feb 15 - Feb 21",
+      "hours": 49.9
+    },
+    "busiestPayPeriod": {
+      "label": "Dec 21 - Jan 3",
+      "hours": 91.2
+    },
+    "topPrograms": [
+      {
+        "key": "club",
+        "label": "Club / Roundhouse",
+        "accent": "violet",
+        "hours": 177.7,
+        "share": 31
+      },
+      {
+        "key": "schools",
+        "label": "Schools",
+        "accent": "blue",
+        "hours": 164.2,
+        "share": 29
+      },
+      {
+        "key": "daily",
+        "label": "Kids Daily",
+        "accent": "teal",
+        "hours": 136.1,
+        "share": 24
+      },
+      {
+        "key": "private",
+        "label": "Private Lessons",
+        "accent": "gold",
+        "hours": 58.9,
+        "share": 10
+      },
+      {
+        "key": "training",
+        "label": "Training",
+        "accent": "green",
+        "hours": 26.8,
+        "share": 5
+      },
+      {
+        "key": "adult_base",
+        "label": "Adult Base",
+        "accent": "amber",
+        "hours": 3.1,
+        "share": 1
+      }
+    ]
+  },
+  "schedule": {
+    "days": [
+      {
+        "dateKey": "2026-04-01",
+        "weekday": "Wed",
+        "dateLabel": "Apr 1",
+        "totalHours": 8.2,
+        "items": [
+          {
+            "title": "Schools (B2)",
+            "hours": 7.27,
+            "programLabel": "Schools",
+            "accent": "blue",
+            "state": "worked",
+            "client": ""
+          },
+          {
+            "title": "Sched for Schools Ski",
+            "hours": 0.9,
+            "programLabel": "Schools",
+            "accent": "blue",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      },
+      {
+        "dateKey": "2026-04-02",
+        "weekday": "Thu",
+        "dateLabel": "Apr 2",
+        "totalHours": 8.0,
+        "items": [
+          {
+            "title": "Sched for Schools Ski",
+            "hours": 8.0,
+            "programLabel": "Schools",
+            "accent": "blue",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      },
+      {
+        "dateKey": "2026-04-03",
+        "weekday": "Fri",
+        "dateLabel": "Apr 3",
+        "totalHours": 8.0,
+        "items": [
+          {
+            "title": "Sched for Riders Daily",
+            "hours": 8.0,
+            "programLabel": "Kids Daily",
+            "accent": "teal",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      },
+      {
+        "dateKey": "2026-04-04",
+        "weekday": "Sat",
+        "dateLabel": "Apr 4",
+        "totalHours": 8.0,
+        "items": [
+          {
+            "title": "Sched for Alpine Club",
+            "hours": 8.0,
+            "programLabel": "Club / Roundhouse",
+            "accent": "violet",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      },
+      {
+        "dateKey": "2026-04-05",
+        "weekday": "Sun",
+        "dateLabel": "Apr 5",
+        "totalHours": 8.0,
+        "items": [
+          {
+            "title": "Sched for Club Ski (B2)",
+            "hours": 8.0,
+            "programLabel": "Club / Roundhouse",
+            "accent": "violet",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      },
+      {
+        "dateKey": "2026-04-08",
+        "weekday": "Wed",
+        "dateLabel": "Apr 8",
+        "totalHours": 8.0,
+        "items": [
+          {
+            "title": "Sched for Schools Board",
+            "hours": 8.0,
+            "programLabel": "Schools",
+            "accent": "blue",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      },
+      {
+        "dateKey": "2026-04-09",
+        "weekday": "Thu",
+        "dateLabel": "Apr 9",
+        "totalHours": 8.0,
+        "items": [
+          {
+            "title": "Sched for Schools Board",
+            "hours": 8.0,
+            "programLabel": "Schools",
+            "accent": "blue",
+            "state": "scheduled",
+            "client": ""
+          }
+        ]
+      }
+    ],
+    "nextBlockHours": 56.2,
+    "nextBlockWorkDays": 7
+  },
+  "stats": {
+    "topPrograms": [
+      {
+        "key": "club",
+        "label": "Club / Roundhouse",
+        "accent": "violet",
+        "hours": 177.7,
+        "share": 31
+      },
+      {
+        "key": "schools",
+        "label": "Schools",
+        "accent": "blue",
+        "hours": 164.2,
+        "share": 29
+      },
+      {
+        "key": "daily",
+        "label": "Kids Daily",
+        "accent": "teal",
+        "hours": 136.1,
+        "share": 24
+      },
+      {
+        "key": "private",
+        "label": "Private Lessons",
+        "accent": "gold",
+        "hours": 58.9,
+        "share": 10
+      },
+      {
+        "key": "training",
+        "label": "Training",
+        "accent": "green",
+        "hours": 26.8,
+        "share": 5
+      },
+      {
+        "key": "adult_base",
+        "label": "Adult Base",
+        "accent": "amber",
+        "hours": 3.1,
+        "share": 1
+      }
+    ],
+    "clients": [
+      {
+        "name": "Joyce Park",
+        "hours": 12.0,
+        "days": 2
+      },
+      {
+        "name": "Sara Bolger",
+        "hours": 6.0,
+        "days": 1
+      },
+      {
+        "name": "Paul Polly",
+        "hours": 6.0,
+        "days": 1
+      },
+      {
+        "name": "Shing Hung",
+        "hours": 6.0,
+        "days": 1
+      },
+      {
+        "name": "Tzu-Li Kang",
+        "hours": 6.0,
+        "days": 1
+      }
+    ]
+  },
+  "pay": {
+    "sampleRates": {
+      "teaching": 25.0,
+      "private": 34.0
+    },
+    "periods": [
+      {
+        "startKey": "2025-10-26",
+        "rangeLabel": "Oct 26 - Nov 8",
+        "status": "past",
+        "totalHrs": 0.0,
+        "teachingHrs": 0.0,
+        "privateHrs": 0.0,
+        "workDays": 0,
+        "avgPerDay": 0,
+        "grossAtSampleRates": 0,
+        "netAtSampleRates": 0
+      },
+      {
+        "startKey": "2025-11-09",
+        "rangeLabel": "Nov 9 - Nov 22",
+        "status": "past",
+        "totalHrs": 0.0,
+        "teachingHrs": 0.0,
+        "privateHrs": 0.0,
+        "workDays": 0,
+        "avgPerDay": 0,
+        "grossAtSampleRates": 0,
+        "netAtSampleRates": 0
+      },
+      {
+        "startKey": "2025-11-23",
+        "rangeLabel": "Nov 23 - Dec 6",
+        "status": "past",
+        "totalHrs": 0.0,
+        "teachingHrs": 0.0,
+        "privateHrs": 0.0,
+        "workDays": 0,
+        "avgPerDay": 0,
+        "grossAtSampleRates": 0,
+        "netAtSampleRates": 0
+      },
+      {
+        "startKey": "2025-12-07",
+        "rangeLabel": "Dec 7 - Dec 20",
+        "status": "past",
+        "totalHrs": 42.6,
+        "teachingHrs": 42.6,
+        "privateHrs": 0.0,
+        "workDays": 7,
+        "avgPerDay": 6.1,
+        "grossAtSampleRates": 1066,
+        "netAtSampleRates": 831
+      },
+      {
+        "startKey": "2025-12-21",
+        "rangeLabel": "Dec 21 - Jan 3",
+        "status": "past",
+        "totalHrs": 91.2,
+        "teachingHrs": 87.6,
+        "privateHrs": 3.7,
+        "workDays": 12,
+        "avgPerDay": 7.6,
+        "grossAtSampleRates": 2314,
+        "netAtSampleRates": 1805
+      },
+      {
+        "startKey": "2026-01-04",
+        "rangeLabel": "Jan 4 - Jan 17",
+        "status": "past",
+        "totalHrs": 64.5,
+        "teachingHrs": 44.0,
+        "privateHrs": 20.5,
+        "workDays": 9,
+        "avgPerDay": 7.2,
+        "grossAtSampleRates": 1798,
+        "netAtSampleRates": 1403
+      },
+      {
+        "startKey": "2026-01-18",
+        "rangeLabel": "Jan 18 - Jan 31",
+        "status": "past",
+        "totalHrs": 73.2,
+        "teachingHrs": 73.2,
+        "privateHrs": 0.0,
+        "workDays": 10,
+        "avgPerDay": 7.3,
+        "grossAtSampleRates": 1830,
+        "netAtSampleRates": 1427
+      },
+      {
+        "startKey": "2026-02-01",
+        "rangeLabel": "Feb 1 - Feb 14",
+        "status": "past",
+        "totalHrs": 73.2,
+        "teachingHrs": 73.2,
+        "privateHrs": 0.0,
+        "workDays": 10,
+        "avgPerDay": 7.3,
+        "grossAtSampleRates": 1830,
+        "netAtSampleRates": 1427
+      },
+      {
+        "startKey": "2026-02-15",
+        "rangeLabel": "Feb 15 - Feb 28",
+        "status": "past",
+        "totalHrs": 86.8,
+        "teachingHrs": 52.0,
+        "privateHrs": 34.8,
+        "workDays": 12,
+        "avgPerDay": 7.2,
+        "grossAtSampleRates": 2482,
+        "netAtSampleRates": 1936
+      },
+      {
+        "startKey": "2026-03-01",
+        "rangeLabel": "Mar 1 - Mar 14",
+        "status": "past",
+        "totalHrs": 65.9,
+        "teachingHrs": 65.9,
+        "privateHrs": 0.0,
+        "workDays": 9,
+        "avgPerDay": 7.3,
+        "grossAtSampleRates": 1648,
+        "netAtSampleRates": 1286
+      },
+      {
+        "startKey": "2026-03-15",
+        "rangeLabel": "Mar 15 - Mar 28",
+        "status": "past",
+        "totalHrs": 54.9,
+        "teachingHrs": 54.9,
+        "privateHrs": 0.0,
+        "workDays": 8,
+        "avgPerDay": 6.9,
+        "grossAtSampleRates": 1372,
+        "netAtSampleRates": 1070
+      },
+      {
+        "startKey": "2026-03-29",
+        "rangeLabel": "Mar 29 - Apr 11",
+        "status": "current",
+        "totalHrs": 14.5,
+        "teachingHrs": 14.5,
+        "privateHrs": 0.0,
+        "workDays": 2,
+        "avgPerDay": 7.3,
+        "grossAtSampleRates": 364,
+        "netAtSampleRates": 284
+      }
+    ],
+    "highlights": [
+      {
+        "startKey": "2026-02-15",
+        "rangeLabel": "Feb 15 - Feb 28",
+        "status": "past",
+        "totalHrs": 86.8,
+        "teachingHrs": 52.0,
+        "privateHrs": 34.8,
+        "workDays": 12,
+        "avgPerDay": 7.2,
+        "grossAtSampleRates": 2482,
+        "netAtSampleRates": 1936
+      },
+      {
+        "startKey": "2025-12-21",
+        "rangeLabel": "Dec 21 - Jan 3",
+        "status": "past",
+        "totalHrs": 91.2,
+        "teachingHrs": 87.6,
+        "privateHrs": 3.7,
+        "workDays": 12,
+        "avgPerDay": 7.6,
+        "grossAtSampleRates": 2314,
+        "netAtSampleRates": 1805
+      },
+      {
+        "startKey": "2026-01-18",
+        "rangeLabel": "Jan 18 - Jan 31",
+        "status": "past",
+        "totalHrs": 73.2,
+        "teachingHrs": 73.2,
+        "privateHrs": 0.0,
+        "workDays": 10,
+        "avgPerDay": 7.3,
+        "grossAtSampleRates": 1830,
+        "netAtSampleRates": 1427
+      }
+    ],
+    "seasonGrossAtSampleRates": 14704,
+    "seasonNetAtSampleRates": 11469
+  }
+}
