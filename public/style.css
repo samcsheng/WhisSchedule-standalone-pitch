@@ -746,12 +746,6 @@ main {
   max-width: 60ch;
 }
 
-.js-hero-title,
-.js-hero-subtitle,
-.js-hero-cta {
-  opacity: 0;
-}
-
 @media (max-width: 1100px) {
   .hero-b,
   .b-showcase-block,
