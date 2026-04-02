@@ -295,8 +295,21 @@
         <div class="about-card__body">
           <p>To try the live app yourself:</p>
           <ol class="try-live-list">
-            <li>Copy Sam’s pass number: <button class="copy-pass-btn" type="button" data-pass-number="110104826660">110104826660</button></li>
-            <li>Open <a href="https://whischedule.vercel.app" target="_blank" rel="noreferrer">whischedule.vercel.app</a></li>
+            <li>
+              <span>Copy Sam’s pass number</span>
+              <button class="copy-pass-btn" type="button" data-pass-number="110104826660" aria-label="Copy pass number 110104826660">
+                <span class="copy-pass-btn__value">110104826660</span>
+                <span class="copy-pass-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><use href="./assets/icons.svg#icon-copy"></use></svg>
+                </span>
+              </button>
+            </li>
+            <li>
+              <span>Open the live app</span>
+              <a class="live-link-btn" href="https://whischedule.vercel.app" target="_blank" rel="noreferrer">
+                Visit whischedule.vercel.app
+              </a>
+            </li>
           </ol>
           <p class="try-live-note">The app is designed to be quick to access and easy to understand on any phone.</p>
         </div>

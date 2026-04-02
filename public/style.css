@@ -11,7 +11,7 @@
   --shadow-soft: rgba(46, 134, 171, 0.12);
   --font-display: "Rubik", sans-serif;
   --font-body: "Heebo", sans-serif;
-  --section-pad: 120px;
+  --section-pad: 160px;
   --nav-width: 92px;
   --container: min(1240px, calc(100vw - 120px));
   --radius-lg: 30px;
@@ -500,7 +500,7 @@ main {
 
 .variant-b-section {
   position: relative;
-  padding-bottom: 10vh;
+  padding-bottom: 18vh;
 }
 
 .b-showcase-block {
@@ -658,11 +658,11 @@ main {
 }
 
 .faq-shell {
-  padding: 0 0 14vh;
+  padding: 4vh 0 18vh;
 }
 
 .about-shell {
-  padding: 0 0 14vh;
+  padding: 5vh 0 18vh;
 }
 
 .wrapper {
@@ -776,7 +776,7 @@ main {
 
 .try-live-list {
   display: grid;
-  gap: 12px;
+  gap: 16px;
   margin: 0;
   padding-left: 20px;
   color: var(--ink);
@@ -784,26 +784,84 @@ main {
   line-height: 1.75;
 }
 
+.try-live-list li {
+  display: grid;
+  gap: 10px;
+}
+
 .copy-pass-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 8px;
-  padding: 6px 12px;
+  justify-content: space-between;
+  gap: 14px;
+  width: fit-content;
+  min-height: 54px;
+  padding: 8px 10px 8px 16px;
   border: 0;
   border-radius: 999px;
-  background: var(--ink);
-  color: var(--bg);
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: transform var(--transition-fast), background var(--transition-fast);
+  border: 2px solid rgba(36, 36, 36, 0.08);
+  box-shadow: 10px 10px 0 rgba(36, 36, 36, 0.05);
+  transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .copy-pass-btn:hover {
   transform: translateY(-1px);
+  box-shadow: 6px 6px 0 rgba(36, 36, 36, 0.05);
+}
+
+.copy-pass-btn__value {
+  font-family: var(--font-display);
+  font-size: 0.94rem;
+  letter-spacing: 0.08em;
+}
+
+.copy-pass-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  background: #efefef;
+  color: #3a3a3a;
+}
+
+.copy-pass-btn__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+}
+
+.live-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 0 rgba(36, 36, 36, 0.05);
+  transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.live-link-btn:hover {
+  transform: translateY(-1px);
   background: var(--accent);
+  box-shadow: 6px 6px 0 rgba(36, 36, 36, 0.05);
 }
 
 .try-live-note {
@@ -961,7 +1019,16 @@ main {
   }
 
   .b-showcase-block {
-    padding: 56px 18px;
+    padding: 72px 18px;
+  }
+
+  .variant-b-section {
+    padding-bottom: 14vh;
+  }
+
+  .faq-shell,
+  .about-shell {
+    padding: 3vh 0 14vh;
   }
 
   .faq-item summary,
