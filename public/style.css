@@ -774,6 +774,42 @@ main {
   line-height: 1.75;
 }
 
+.try-live-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.copy-pass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.copy-pass-btn:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+}
+
+.try-live-note {
+  margin-top: 6px;
+}
+
 .about-contact {
   display: flex;
   flex-wrap: wrap;

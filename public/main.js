@@ -121,6 +121,25 @@ function initAnchors() {
   });
 }
 
+function initCopyPass() {
+  document.querySelectorAll("[data-pass-number]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const value = button.getAttribute("data-pass-number");
+      if (!value) return;
+      try {
+        await navigator.clipboard.writeText(value);
+        const previous = button.textContent;
+        button.textContent = "Copied";
+        setTimeout(() => {
+          button.textContent = previous;
+        }, 1400);
+      } catch (error) {
+        window.prompt("Copy this pass number:", value);
+      }
+    });
+  });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   initHeroEntrance(".hero-copy", ".hero-copy .js-hero-title, .hero-copy .js-hero-subtitle, .hero-copy .js-hero-cta");
   initLineReveal(".section-label, .section-title");
@@ -133,6 +152,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initSideRail();
   initFaq();
   initAnchors();
+  initCopyPass();
 
   document.fonts.ready.then(() => {
     ScrollTrigger.refresh();
